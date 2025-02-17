@@ -1,0 +1,312 @@
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #1B1B1B;
+    color: #eef8ce;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-image:
+    url(bg.png),
+    repeating-linear-gradient(
+        to right, transparent 0 500px, #73814B33 500px 501px
+    );
+    background-size: 100%;
+}
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+.section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-fit {
+    width: min(1200px, 90vw);
+    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    padding-block: 10em;
+}
+header {
+    padding-block: 1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10px;
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    background-color: #1B1B1B11;
+    background-image: repeating-linear-gradient(
+        to right, transparent 0 500px, #eee1 500px 501px
+    );
+}
+header .content-fit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: unset!important;
+    padding-block: unset!important;
+}
+header .content-fit nav ul{
+    display: flex;
+    gap: 2em;
+}
+
+#banner .title {
+    color: #d1ff48;
+    font-size: 11em;
+    font-family: "devil breeze";
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+#banner .title::before {
+    content: attr(data-before);
+    position: absolute;
+    top: 0.5em;
+    inset: 0.66em 0 0 0;
+    z-index: -1;
+    color: #445022;
+}
+.section .decorate {
+    position: absolute;
+}
+#intro .content-fit {
+    display: flex;
+    gap: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+.section .number {
+    font-family: "devil breeze";
+    font-size: 15em;
+    font-weight: bold;
+}
+.section .content-fit .title {
+    font-family: "devil breeze";
+    font-size: 5em;
+    font-weight: bold;
+}
+#description .content-fit {
+    padding-right: 30%;
+}
+#description .number {
+    font-size: 5em;
+}
+#container3D {
+    position: fixed;
+    inset: 0;
+    /* background-color: red; */
+    z-index: 100;
+    pointer-events: none;
+}
+@media screen and (max-width: 1023px){
+    #banner .title {
+        font-size: 5em;
+    }
+    #intro .content-fit {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 767px){
+    #banner .title {
+        font-size: 3em;
+    }
+    #intro .content-fit {
+        flex-direction: column;
+    }
+    .section .number {
+        font-size: 5em;
+    }
+    .section .content-fit .title {
+        font-size: 2em;
+    }
+    #description .content-fit {
+        padding-right: 0;
+    }
+    #contact table {
+        font-size: 1em;
+    }
+    #contact .sign {
+        font-size: 2em;
+    }
+    #container3D {
+        position: absolute;
+    }
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(240, 209, 209, 0.1);
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(248, 239, 239);
+}
+.tagline {
+    font-size: 1em;
+    font-style: italic;
+    color: #fff700;  /* You can adjust this color to match your theme */
+    margin-top: 0.5em;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: rgb(140, 230, 6);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+    color: rgb(143, 243, 28);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+
+/* Navbar Buttons */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Login Button */
+.btn.login {
+    background: transparent;
+    border: 2px solid rgb(180, 245, 51);
+    color: rgb(249, 187, 64);
+}
+
+.btn.login:hover {
+    background: rgb(190, 241, 37);
+    color: black;
+}
+
+/* Signup Button */
+.btn.signup {
+    background: rgb(184, 250, 30);
+    color: black;
+    border: 2px solid rgb(203, 251, 29);
+}
+
+.btn.signup:hover {
+    background: rgb(0, 0, 0);
+    color: black;
+}
+
+/* Container for the courses */
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 2em;
+}
+
+/* Individual course card styling */
+.course-card {
+    background-color: #a3ec35;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px hsla(69, 79%, 57%, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    color: rgb(0, 0, 0);
+}
+
+/* Image styling */
+.course-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding: 1em;
+}
+
+/* Course info styling */
+.course-info {
+    padding: 1em;
+}
+
+.course-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: rgb(74, 39, 251);
+}
+
+.course-description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #000000;
+}
+/* Button Styles */
+.enroll-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.enroll-btn:hover {
+    background-color: green;
+}
+
+.enroll-btn:focus {
+    outline: none;
+}
