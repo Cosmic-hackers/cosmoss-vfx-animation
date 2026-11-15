@@ -209,44 +209,6 @@ header .content-fit nav ul{
 }
 
 
-/* Navbar Buttons */
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn {
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-/* Login Button */
-.btn.login {
-    background: transparent;
-    border: 2px solid rgb(180, 245, 51);
-    color: rgb(249, 187, 64);
-}
-
-.btn.login:hover {
-    background: rgb(190, 241, 37);
-    color: black;
-}
-
-/* Signup Button */
-.btn.signup {
-    background: rgb(184, 250, 30);
-    color: black;
-    border: 2px solid rgb(203, 251, 29);
-}
-
-.btn.signup:hover {
-    background: rgb(0, 0, 0);
-    color: black;
-}
-
 /* Container for the courses */
 .courses-container {
     width: min(1200px, 90vw);
@@ -387,15 +349,6 @@ footer {
 
     .nav-links.is-open {
         display: flex;
-    }
-
-    .nav-buttons {
-        display: none;
-    }
-
-    .btn {
-        font-size: 0.75rem;
-        padding: 0.45rem 0.65rem;
     }
 
     .section {
