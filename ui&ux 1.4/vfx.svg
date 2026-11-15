@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title">
+  <title>Abstract visual effects artwork</title>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="1" y2="0">
+      <stop stop-color="#17122f"/>
+      <stop offset=".52" stop-color="#6c3e9b"/>
+      <stop offset="1" stop-color="#9edb38"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#fff5a8"/>
+      <stop offset=".25" stop-color="#ffc84f" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#ff9e36" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#background)"/>
+  <circle cx="570" cy="180" r="180" fill="url(#glow)"/>
+  <path d="M40 350c140-160 190-30 320-170s190-110 400-130" fill="none" stroke="#f8f2bc" stroke-width="9" opacity=".8"/>
+  <path d="M20 390c170-140 230-30 355-150s190-100 425-125" fill="none" stroke="#a3ec35" stroke-width="4" opacity=".75"/>
+  <circle cx="570" cy="180" r="26" fill="#fff5a8"/>
+</svg>

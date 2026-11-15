@@ -13,11 +13,17 @@ camera.position.z = 13;
 const scene = new THREE.Scene();
 let bee;
 let mixer;
+const updateModelScale = () => {
+    if (bee) {
+        bee.scale.setScalar(window.innerWidth <= 767 ? 0.5 : 1);
+    }
+};
 const loader = new GLTFLoader();
-loader.load('/demon_bee_full_texture.glb',
+loader.load('./demon_bee_full_texture.glb',
     function (gltf) {
         bee = gltf.scene;
         scene.add(bee);
+        updateModelScale();
 
         mixer = new THREE.AnimationMixer(bee);
         mixer.clipAction(gltf.animations[0]).play();
@@ -82,10 +88,18 @@ const modelMove = () => {
     );
     if (position_active >= 0) {
         let new_coordinates = arrPositionModel[position_active];
+        const isMobile = window.innerWidth <= 767;
+        const position = isMobile
+            ? {
+                x: new_coordinates.position.x * 0.15,
+                y: new_coordinates.position.y,
+                z: new_coordinates.position.z + 2,
+            }
+            : new_coordinates.position;
         gsap.to(bee.position, {
-            x: new_coordinates.position.x,
-            y: new_coordinates.position.y,
-            z: new_coordinates.position.z,
+            x: position.x,
+            y: position.y,
+            z: position.z,
             duration: 3,
             ease: "power1.out"
         });
@@ -107,4 +121,23 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
+    updateModelScale();
+    if (bee) {
+        modelMove();
+    }
 })
+
+const menuButton = document.querySelector('.hamburger');
+const navLinks = document.querySelector('#navLinks');
+
+menuButton.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('is-open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+});
+
+navLinks.addEventListener('click', (event) => {
+    if (event.target instanceof HTMLAnchorElement) {
+        navLinks.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+    }
+});

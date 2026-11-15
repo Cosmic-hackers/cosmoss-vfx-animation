@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title">
+  <title>Abstract 3D animation artwork</title>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#112945"/>
+      <stop offset=".55" stop-color="#2c9c7a"/>
+      <stop offset="1" stop-color="#182019"/>
+    </linearGradient>
+    <linearGradient id="orb" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fff9c6"/>
+      <stop offset="1" stop-color="#66d6a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#background)"/>
+  <ellipse cx="395" cy="210" rx="150" ry="116" fill="url(#orb)" opacity=".92"/>
+  <path d="M245 210c66-78 235-78 300 0-65 78-234 78-300 0Z" fill="none" stroke="#d7ffe1" stroke-width="8" opacity=".8"/>
+  <path d="M160 100c100 75 380 145 480 220M640 100C540 175 260 245 160 320" fill="none" stroke="#9ef3c9" stroke-width="5" opacity=".65"/>
+  <circle cx="395" cy="210" r="24" fill="#fff9c6"/>
+</svg>

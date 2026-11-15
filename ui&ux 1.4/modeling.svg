@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title">
+  <title>Abstract 3D modeling artwork</title>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#102d2b"/>
+      <stop offset="0.55" stop-color="#8cbf35"/>
+      <stop offset="1" stop-color="#172016"/>
+    </linearGradient>
+    <linearGradient id="shape" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f2ff8a"/>
+      <stop offset="1" stop-color="#5a8928"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#background)"/>
+  <path d="M140 310 300 90l185 58 112 146-200 70Z" fill="url(#shape)" opacity=".9"/>
+  <path d="m300 90 38 201 147 3-112-146Z" fill="#d9f85e" opacity=".65"/>
+  <path d="m338 291 147 3 112-146-185-58Z" fill="#31552b" opacity=".7"/>
+  <circle cx="640" cy="80" r="44" fill="#edff76" opacity=".8"/>
+</svg>

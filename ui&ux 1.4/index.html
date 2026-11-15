@@ -9,23 +9,19 @@
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="logo">COSMOSS VFX & Animation</div>
-        <p class="tagline">Where Imagination Meets Reality in 3D</p>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Studio</a></li>
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#banner">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#description">Studio</a></li>
+            <li><a href="#footer">Contact</a></li>
         </ul>
         <div class="nav-buttons">
             <a href="#" class="btn login">Login</a>
             <a href="#" class="btn signup">Sign Up</a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <button class="hamburger" type="button" aria-controls="navLinks" aria-expanded="false">☰<span class="sr-only">Toggle navigation</span></button>
     </nav>
 
     <div class="section" id="banner">
@@ -44,9 +40,9 @@
             </div>
         </div>
     </div>
-    <div class="courses-container">
+    <div class="courses-container" id="courses">
         <div class="course-card">
-            <img src="3d-modeling.jpg" alt="3D Modeling" class="course-img">
+            <div class="course-img course-art-modeling" role="img" aria-label="3D modeling artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Mastering 3D Modeling</h3>
                 <p class="course-description">Learn the essentials of 3D modeling, from beginner to expert level, and create stunning digital models.</p>
@@ -56,7 +52,7 @@
         </div>
 
         <div class="course-card">
-            <img src="vfx-basics.jpg" alt="VFX Basics" class="course-img">
+            <div class="course-img course-art-vfx" role="img" aria-label="VFX artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Introduction to VFX</h3>
                 <p class="course-description">Start your journey into the world of visual effects and learn the fundamental techniques used in the industry.</p>
@@ -65,17 +61,17 @@
         </div>
 
         <div class="course-card">
-            <img src="3d-animation.jpg" alt="3D Animation" class="course-img">
+            <div class="course-img course-art-animation" role="img" aria-label="3D animation artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Advanced 3D Animation Techniques</h3>
                 <p class="course-description">Take your 3D animation skills to the next level by learning advanced techniques used .</p>
                 <button class="enroll-btn">Enroll Now</button>
 
             </div>
-        </div>                                                                                                                                                                                                                                                                                            
+        </div>
+    </div>
 
-        
-    <div class="section" id="description">                                                              
+    <div class="section" id="description">
         <div class="content-fit">
             <div class="number">02</div>
             <div class="des">
@@ -88,7 +84,7 @@
 
     <div class="courses-container">
         <div class="course-card">
-            <img src="img/3d-modeling.jpg" alt="3D Modeling" class="course-img">
+            <div class="course-img course-art-modeling" role="img" aria-label="3D modeling artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Mastering 3D Modeling</h3>
                 <p class="course-description">Learn the essentials of 3D modeling, from beginner to expert level, and create stunning digital models.</p>
@@ -98,7 +94,7 @@
         </div>
 
         <div class="course-card">
-            <img src="img/vfx-basics.jpg" alt="VFX Basics" class="course-img">
+            <div class="course-img course-art-vfx" role="img" aria-label="VFX artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Introduction to VFX</h3>
                 <p class="course-description">Start your journey into the world of visual effects and learn the fundamental techniques used in the industry.</p>
@@ -108,15 +104,16 @@
         </div>
 
         <div class="course-card">
-            <img src="img/3d-animation.jpg" alt="3D Animation" class="course-img">
+            <div class="course-img course-art-animation" role="img" aria-label="3D animation artwork"></div>
             <div class="course-info">
                 <h3 class="course-title">Advanced 3D Animation Techniques</h3>
                 <p class="course-description">Take your 3D animation skills to the next level by learning advanced techniques used in professional animation studios.</p>
                 <button class="enroll-btn">Learn more</button>
             </div>
         </div>
-    
-<footer>
+    </div>
+
+<footer id="footer">
     <div class="footer-container">
         <div class="footer-left">
             <h3>cosmoss VFX & AnimationS</h3>
@@ -126,13 +123,10 @@
         <div class="footer-center">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">stdudio</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#banner">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#description">Studio</a></li>
+                <li><a href="#footer">Contact</a></li>
             </ul>
         </div>
 
@@ -240,6 +234,7 @@
 </style>
 
 
-<div id="container3D"></div>
+<div id="container3D" aria-hidden="true"></div>
 <script type="module" src="app.js"></script>
+</body>
 </html>
