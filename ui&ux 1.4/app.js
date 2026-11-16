@@ -27,7 +27,7 @@ loader.load('./demon_bee_full_texture.glb',
 
         mixer = new THREE.AnimationMixer(bee);
         mixer.clipAction(gltf.animations[0]).play();
-        modelMove();
+        setModelPosition('banner', false);
     },
     function (xhr) {},
     function (error) {}
@@ -74,44 +74,55 @@ let arrPositionModel = [
         rotation: { x: 0.3, y: -0.5, z: 0 },
     },
 ];
+const setModelPosition = (sectionId, animate = true) => {
+    const position_active = arrPositionModel.findIndex(
+        (val) => val.id === sectionId
+    );
+    if (position_active < 0) {
+        return;
+    }
+
+    const new_coordinates = arrPositionModel[position_active];
+    const isMobile = window.innerWidth <= 767;
+    const position = isMobile
+        ? {
+            x: new_coordinates.position.x * 0.15,
+            y: new_coordinates.position.y,
+            z: new_coordinates.position.z + 2,
+        }
+        : new_coordinates.position;
+    const tweenOptions = {
+        duration: animate ? 3 : 0,
+        ease: "power1.out"
+    };
+
+    gsap.to(bee.position, {
+        x: position.x,
+        y: position.y,
+        z: position.z,
+        ...tweenOptions
+    });
+    gsap.to(bee.rotation, {
+        x: new_coordinates.rotation.x,
+        y: new_coordinates.rotation.y,
+        z: new_coordinates.rotation.z,
+        ...tweenOptions
+    });
+};
+
 const modelMove = () => {
     const sections = document.querySelectorAll('.section');
-    let currentSection;
-    sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 3) {
-            currentSection = section.id;
-        }
-    });
-    let position_active = arrPositionModel.findIndex(
-        (val) => val.id == currentSection
-    );
-    if (position_active >= 0) {
-        let new_coordinates = arrPositionModel[position_active];
-        const isMobile = window.innerWidth <= 767;
-        const position = isMobile
-            ? {
-                x: new_coordinates.position.x * 0.15,
-                y: new_coordinates.position.y,
-                z: new_coordinates.position.z + 2,
+    let currentSection = 'banner';
+    if (window.scrollY > 5) {
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 3) {
+                currentSection = section.id;
             }
-            : new_coordinates.position;
-        gsap.to(bee.position, {
-            x: position.x,
-            y: position.y,
-            z: position.z,
-            duration: 3,
-            ease: "power1.out"
         });
-        gsap.to(bee.rotation, {
-            x: new_coordinates.rotation.x,
-            y: new_coordinates.rotation.y,
-            z: new_coordinates.rotation.z,
-            duration: 3,
-            ease: "power1.out"
-        })
     }
-}
+    setModelPosition(currentSection);
+};
 window.addEventListener('scroll', () => {
     if (bee) {
         modelMove();
@@ -122,9 +133,6 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     updateModelScale();
-    if (bee) {
-        modelMove();
-    }
 })
 
 const menuButton = document.querySelector('.hamburger');
