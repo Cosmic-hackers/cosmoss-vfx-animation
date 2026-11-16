@@ -13,6 +13,7 @@ camera.position.z = 13;
 const scene = new THREE.Scene();
 let bee;
 let mixer;
+const modelTarget = { x: 0, y: 0, z: 0 };
 const updateModelScale = () => {
     if (bee) {
         bee.scale.setScalar(window.innerWidth <= 767 ? 0.5 : 1);
@@ -47,6 +48,12 @@ scene.add(topLight);
 
 const reRender3D = () => {
     requestAnimationFrame(reRender3D);
+    if (bee) {
+        const time = performance.now();
+        bee.position.x = modelTarget.x + Math.sin(time * 0.0017) * 0.08;
+        bee.position.y = modelTarget.y + Math.sin(time * 0.0025) * 0.12;
+        bee.position.z = modelTarget.z;
+    }
     renderer.render(scene, camera);
     if(mixer) mixer.update(0.02);
 };
@@ -86,7 +93,7 @@ const setModelPosition = (sectionId, animate = true) => {
     const isMobile = window.innerWidth <= 767;
     const position = isMobile
         ? sectionId === 'banner'
-            ? { x: 0, y: -0.35, z: 0.5 }
+            ? { x: 0, y: -1, z: 0.5 }
             : {
                 x: new_coordinates.position.x * 0.15,
                 y: new_coordinates.position.y,
@@ -98,7 +105,7 @@ const setModelPosition = (sectionId, animate = true) => {
         ease: "power1.out"
     };
 
-    gsap.to(bee.position, {
+    gsap.to(modelTarget, {
         x: position.x,
         y: position.y,
         z: position.z,
