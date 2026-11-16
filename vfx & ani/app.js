@@ -85,11 +85,13 @@ const setModelPosition = (sectionId, animate = true) => {
     const new_coordinates = arrPositionModel[position_active];
     const isMobile = window.innerWidth <= 767;
     const position = isMobile
-        ? {
-            x: new_coordinates.position.x * 0.15,
-            y: new_coordinates.position.y,
-            z: new_coordinates.position.z + 2,
-        }
+        ? sectionId === 'banner'
+            ? { x: 0, y: -0.35, z: 0.5 }
+            : {
+                x: new_coordinates.position.x * 0.15,
+                y: new_coordinates.position.y,
+                z: new_coordinates.position.z + 2,
+            }
         : new_coordinates.position;
     const tweenOptions = {
         duration: animate ? 3 : 0,
